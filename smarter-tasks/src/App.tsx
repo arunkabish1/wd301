@@ -1,12 +1,13 @@
+import React from 'react';
+import './App.css';
+import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
-import './App.css'
-
 function App() {
   return (
     <div className="App">
-      <TaskList />
+      <TaskForm />
+      <TaskList tasks={[]}/>
     </div>
   );
 }
-
-export default App
+export default App;
