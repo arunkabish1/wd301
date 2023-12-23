@@ -8,9 +8,7 @@ interface TaskListProps {
 
 class TaskList extends React.Component<TaskListProps> {
   render() {
-    return this.props.tasks.map((task, idx) => (
-      <Task key={idx} title={task.title} />
-    ));
+    return this.props.tasks.map((task, idx) => <Task key={idx} task={task} />);
   }
 }
 
