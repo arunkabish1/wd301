@@ -1,30 +1,15 @@
 import React from "react";
-import "./TaskCard.css";
-import { TaskItem } from "./types";
 
-interface TaskProps {
-  task: TaskItem;
-}
-
-class Task extends React.Component<TaskProps> {
-  render() {
-    const { task } = this.props;
-
-    if (!task) {
-      return null;
-    }
-
-    const { title, description, dueDate } = task;
-    return (
-      <div className="TaskItem">
-        <h2 className="text-lg">Title:{title}</h2>
-        <h3 className="text-sm">Due Date:{dueDate}</h3>
-        <h3 className="text-sm">
-          Description:{description && <p>{description}</p>}
-        </h3>
-      </div>
-    );
-  }
-}
+const Task: React.FC<TaskItem> = (props) => {
+  return (
+    <div className="TaskItem shadow-md border border-slate-100">
+      <h2 className="text-base font-bold my-1">{props.title}</h2>
+      <p className="text-sm text-slate-500">{props.dueDate}</p>
+      <p className="text-sm text-slate-500">
+        Description: {props.description}
+      </p>
+    </div>
+  );
+};
 
 export default Task;
