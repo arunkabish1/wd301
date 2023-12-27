@@ -1,3 +1,4 @@
+// TaskApp.tsx
 import React from "react";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
@@ -30,19 +31,19 @@ const TaskApp: React.FC<TaskAppProps> = () => {
     });
   };
 
+  console.log("taskAppState:", taskAppState); // Log the entire state
+
   return (
     <div className="py-10 max-w-4xl mx-auto">
       <h1 className="text-3xl mb-2 font-bold text-black-700">Smarter Tasks</h1>
       <h1 className="text-lg mb-6 text-black-600">
-        <span className="font-bold">Project: </span> Graduation Final Year
-        Project
+        <span className="font-bold">Project: </span> Graduation Final Year Project
       </h1>
-      <div className="grid grid-cols  gap-4">
-        <div className="border border-blue-900  rounded-xl p-4">
+      <div className="grid grid-cols gap-4">
+        <div className="border border-blue-00 rounded-xl p-4">
           <h1 className="text-green-500 text-xl font-bold text-center mb-2">
             Create a new task
           </h1>
-
           <TaskForm addTask={addTask} />
           <TaskList tasks={taskAppState.tasks} onDelete={deleteTask} />
         </div>

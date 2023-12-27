@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { TaskItem } from "./types";
 
@@ -18,6 +19,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
       addTask(task);
       setTask({ title: "", dueDate: "", description: "" });
     }
+    
   };
 
   const { title, dueDate, description } = task;
