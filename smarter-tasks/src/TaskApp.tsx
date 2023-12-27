@@ -18,19 +18,6 @@ const TaskApp: React.FC<TaskAppProps> = () => {
     }
   );
 
-  React.useEffect(() => {
-    console.log("useEffect called");
-
-    const id = setTimeout(() => {
-      console.log(`Saved ${taskAppState.tasks.length} items to backend...`);
-    }, 5000);
-
-    return () => {
-      console.log("clear or cancel any existing network call");
-      clearTimeout(id);
-    };
-  }, [taskAppState.tasks]);
-
   const addTask = (task: TaskItem) => {
     setTaskAppState((state) => ({ tasks: [...state.tasks, task] }));
   };
@@ -45,15 +32,15 @@ const TaskApp: React.FC<TaskAppProps> = () => {
 
   return (
     <div className="py-10 max-w-4xl mx-auto">
-      <h1 className="text-3xl mb-2 font-bold text-slate-700">Smarter Tasks</h1>
-      <h1 className="text-lg mb-6 text-slate-600">
+      <h1 className="text-3xl mb-2 font-bold text-black-700">Smarter Tasks</h1>
+      <h1 className="text-lg mb-6 text-black-600">
         <span className="font-bold">Project: </span> Graduation Final Year
         Project
       </h1>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="border border-slate-200 rounded-xl p-4">
-          <h1 className="text-slate-500 text-xl font-bold text-center mb-2">
-            Pending
+      <div className="grid grid-cols  gap-4">
+        <div className="border border-blue-900  rounded-xl p-4">
+          <h1 className="text-green-500 text-xl font-bold text-center mb-2">
+            Create a new task
           </h1>
 
           <TaskForm addTask={addTask} />

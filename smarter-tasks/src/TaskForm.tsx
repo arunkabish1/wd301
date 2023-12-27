@@ -6,13 +6,17 @@ interface TaskFormProps {
 }
 
 const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
-  const [taskName, setTaskName] = useState("");
+  const [task, setTask] = useState<TaskItem>({
+    title: "",
+    dueDate: "",
+    description: "",
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (taskName.trim() !== "") {
-      addTask({ title: taskName });
-      setTaskName("");
+    if (task.title.trim() !== "") {
+      addTask(task);
+      setTask({ title: "", dueDate: "", description: "" });
     }
   };
 
@@ -21,16 +25,17 @@ const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
       <div className="flex">
         <input
           type="text"
-          value={taskName}
-          onChange={(e) => setTaskName(e.target.value)}
-          className="flex-1 border border-slate-300 rounded-md p-2"
-          placeholder="Add a new task..."
-        />
+          value={task.title}
+          onChange={(e) => setTask({ ...task, title: e.target.value })}
+          className="flex-1 border border-blue-300 rounded-md p-2"
+          placeholder="Any new task..."
+        />  
         <button
           type="submit"
-          className="ml-2 bg-slate-500 text-white rounded-md p-2"
+          id="addTaskButton"
+          className="ml-2 bg-green-500 hover:bg-green-600 hover:text-500 text-white rounded-md p-2"
         >
-          Add
+          Add Task
         </button>
       </div>
     </form>
