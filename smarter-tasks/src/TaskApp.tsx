@@ -2,10 +2,7 @@ import React from "react";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 import { useLocalStorage } from "./hooks/useLocalStorage";
-
-interface TaskItem {
-  name: string;
-}
+import TaskItem from "./types";
 
 interface TaskAppProps {}
 
@@ -58,6 +55,7 @@ const TaskApp: React.FC<TaskAppProps> = () => {
           <h1 className="text-slate-500 text-xl font-bold text-center mb-2">
             Pending
           </h1>
+
           <TaskForm addTask={addTask} />
           <TaskList tasks={taskAppState.tasks} onDelete={deleteTask} />
         </div>
