@@ -1,12 +1,6 @@
 import React from "react";
 import { TaskItem } from "./types";
 
-interface TaskItem {
-  title: string;
-  description: string;
-  dueDate: string;
-}
-
 const Task: React.FC<TaskItem> = (props) => {
   return (
     <div className="TaskItem shadow-md border border-slate-100">

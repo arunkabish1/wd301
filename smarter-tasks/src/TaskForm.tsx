@@ -11,7 +11,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (taskName.trim() !== "") {
-      addTask({ name: taskName });
+      addTask({ title: taskName });
       setTaskName("");
     }
   };

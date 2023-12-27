@@ -2,7 +2,7 @@ import React from "react";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 import { useLocalStorage } from "./hooks/useLocalStorage";
-import TaskItem from "./types";
+import { TaskItem } from "./types";
 
 interface TaskAppProps {}
 
