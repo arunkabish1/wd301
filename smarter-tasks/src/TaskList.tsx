@@ -20,7 +20,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, deleteTask }) => {
                 dueDate={task.dueDate}
                 description={task.description}
                 deleteTask={deleteTask}
-                item={""}
+                key={task.id}
               />
             </div>
           ))}
