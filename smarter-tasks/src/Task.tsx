@@ -1,33 +1,35 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import "./TaskCard.css";
 
 interface TaskProps {
-  item: string;
-  deleteTask: (task: string) => void;
   id: string;
   title: string;
   description: string;
   dueDate: string;
+  deleteTask: (task: string) => void;
 }
+
 const Task = (props: TaskProps) => {
+  console.log(props);
   return (
     <div className="TaskItem">
-        <div>
-          <a href={`/tasks/${props.id || ""}`}>
-            <h2 className="text-base font-bold my-1">{props.title}</h2>
-          </a>
-          <h2>{props.dueDate}</h2>
-          <h2>
-            Description: {props.description}
-          </h2>
-        </div>
+      <div>
+        <Link to={`/tasks/${props.id}`}>
+          <h3 className="text-base font-bold my-1">{props.title}</h3>
+        </Link>
 
-        <button
-          className="deleteTaskButton border-3 p-1 m-1 w-20 bg-red-300 border rounded flex-end hover:bg-red-800"
-          onClick={() => props.deleteTask(props.title)}
-        >
-          Delete{" "}
-        </button>
+        <p>{props.dueDate}</p>
+        <p>Description: {props.description}</p>
       </div>
+
+      <button
+        className="deleteTaskButton border-3 p-1 m-1 bg-red-300 border rounded hover:bg-red-800"
+        onClick={() => props.deleteTask(props.title)}
+      >
+        Delete
+      </button>
+    </div>
   );
 };
 

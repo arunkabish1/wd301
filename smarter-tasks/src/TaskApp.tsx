@@ -15,8 +15,11 @@ const TaskApp: React.FC = () => {
       tasks: [],
     }
   );
-  const addTask = (task: TaskItem) => {
-    setTaskAppState({ tasks: [...taskAppState.tasks, task] });
+  const [indexCounter, setIndexCounter] = useLocalStorage<number>("taskIndexCounter", 1);
+  const addTask = (task: TaskItem,) => {
+    const newTask = { ...task, id: indexCounter.toString() };
+    setTaskAppState({ tasks: [...taskAppState.tasks, newTask] });
+    setIndexCounter(indexCounter + 1);
   };
   const deleteTask = (title: string) => {
     setTaskAppState({

@@ -15,10 +15,13 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, deleteTask }) => {
           {tasks.map((task, idx) => (
             <div key={idx} className="m-2 hover:bg-gray-200">
               <Task
+                id={task.id}
                 title={task.title}
                 dueDate={task.dueDate}
                 description={task.description}
-                deleteTask={deleteTask} item={""} id={""}              />
+                deleteTask={deleteTask}
+                item={""}
+              />
             </div>
           ))}
         </div>
@@ -28,5 +31,4 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, deleteTask }) => {
     </div>
   );
 };
-
 export default TaskList;
