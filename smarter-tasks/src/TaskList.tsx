@@ -18,8 +18,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, deleteTask }) => {
                 title={task.title}
                 dueDate={task.dueDate}
                 description={task.description}
-                deleteTask={deleteTask}
-              />
+                deleteTask={deleteTask} item={""} id={""}              />
             </div>
           ))}
         </div>
