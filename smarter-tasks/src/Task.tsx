@@ -1,15 +1,29 @@
-import React from "react";
-import { TaskItem } from "./types";
+import "./TaskCard.css";
 
-const Task: React.FC<TaskItem> = (props) => {
+interface TaskProp {
+  deleteTask: (title: string) => void;
+  title: string;
+  description: string;
+  dueDate: string;
+}
+
+const Task = (props: TaskProp) => {
   return (
-    <div className="TaskItem shadow-md border border-slate-100">
-      <h2 className="text-base font-bold my-1">{props.title}</h2>
-      <p className="text-sm text-slate-500">{props.dueDate}</p>
-      <p className="text-sm text-slate-500">
-        Description: {props.description}
-      </p>
-    </div>
+    <div className="TaskItem">
+    <h2>Title: {props.title}</h2>
+    <h2>{props.description ? `Description: ${props.description}` : ""}</h2>
+    <h2>Due date: {props.dueDate}</h2>
+    <button
+      id="deleteTaskButton"
+      className="deleteTaskButton border-3 p-1 m-1 w-20 bg-red-300 border rounded flex-end hover:bg-red-800"
+      onClick={() => {
+        props.deleteTask(props.title);
+      }}
+    >
+      Delete
+    </button>
+    <br />
+  </div>
   );
 };
 

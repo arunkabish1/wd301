@@ -1,32 +1,23 @@
-import { useState, useEffect, Dispatch, SetStateAction } from "react";
+import { useEffect, useState } from "react";
 
 const getStoredValue = <T>(key: string, defaultValue: T): T => {
-  try {
-    const savedItem = localStorage.getItem(key);
-    if (savedItem) {
-      return JSON.parse(savedItem) as T;
-    }
-  } catch (error) {
-    console.error("Error parsing JSON from localStorage:", error);
+  const ItemsStored = localStorage.getItem(key);
+  if (ItemsStored) {
+    return JSON.parse(ItemsStored);
   }
   return defaultValue;
 };
 
 export const useLocalStorage = <T>(
   key: string,
+
   defaultValue: T
-): [T, Dispatch<SetStateAction<T>>] => {
+): [T, React.Dispatch<React.SetStateAction<T>>] => {
   const [value, setValue] = useState(() => {
     return getStoredValue(key, defaultValue);
   });
-
   useEffect(() => {
-    try {
-      localStorage.setItem(key, JSON.stringify(value));
-    } catch (error) {
-      console.error("Error stringifying value to JSON:", error);
-    }
+    localStorage.setItem(key, JSON.stringify(value));
   }, [key, value]);
-
   return [value, setValue];
 };
