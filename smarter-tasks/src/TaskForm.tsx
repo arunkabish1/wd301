@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { TaskItem } from "./types";
 
@@ -19,7 +18,6 @@ const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
       addTask(task);
       setTask({ title: "", dueDate: "", description: "" });
     }
-    
   };
 
   const { title, dueDate, description } = task;
@@ -32,12 +30,16 @@ const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
             type="text"
             value={title}
             onChange={(e) => setTask({ ...task, title: e.target.value })}
+            id="title" 
+            name="title"
             className="flex-1 border border-blue-300 rounded-md p-2 required"
             placeholder="Task Title"
           />
           <input
             type="date"
             value={dueDate}
+            id="dueDate"
+            name="dueDate"
             onChange={(e) => setTask({ ...task, dueDate: e.target.value })}
             className="ml-2 flex-1 border border-blue-300 rounded-md p-2 required"
             placeholder="Due Date"
@@ -46,6 +48,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
         <div className="mt-2">
           <textarea
             value={description}
+            id="description"
+            name="description"
             onChange={(e) => setTask({ ...task, description: e.target.value })}
             className="w-full border border-blue-300 rounded-md p-2 required"
             placeholder="Task Description"
