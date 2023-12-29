@@ -1,31 +1,38 @@
-import AccountLayout from "../layouts/account"
-import ProtectedRoute from "./ProtectedRoute"
-import Signin from "../pages/signin"
-import { createBrowserRouter, Navigate } from "react-router-dom";
-import Signup from "../pages/signup"
+import Signup from "../pages/signup";
+import Projects from "../pages/projects";
+import Members from "../pages/members";
 import Logout from "../pages/Logout";
-import Projects from "../pages/projects"
-import Members from "../pages/members"
-
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import AccountLayout from "../layouts/account";
+import ProtectedRoute from "./ProtectedRoute";
+import Signin from "../pages/signin";
+import Notfound from "../pages/Notfound";
 const router = createBrowserRouter([
   { path: "/", element: <Navigate to="/account/projects" replace /> },
   {
-    path: "/", 
-    element: <Signin />
+    path: "/notfound",
+    element: <Notfound />,
   },
   {
-    path: "/signin", 
-    element: <Signin />
+    path: "*",
+    element: <Notfound />,
   },
   {
-    path: "/signup", 
-    element: <Signup />
+    path: "/signin",
+    element: <Signin />,
   },
-  { 
-    path: "/logout", 
-    element: <Logout /> 
+  {
+    path: "/signin",
+    element: <Signin />,
   },
-  // Protected Routes
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    path: "/logout",
+    element: <Logout />,
+  },
   {
     path: "account",
     element: (
@@ -37,11 +44,11 @@ const router = createBrowserRouter([
       { index: true, element: <Navigate to="/account/projects" replace /> },
       {
         path: "projects",
-        element: (<Projects />)
+        element: <Projects />,
       },
       {
         path: "members",
-        element: (<Members />)
+        element: <Members />,
       },
     ],
   },
