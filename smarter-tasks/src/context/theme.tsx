@@ -2,20 +2,20 @@ import React, { createContext, useState } from "react";
 
 interface ThemeContextProps {
   theme: string;
-  setTheme: (color: string) => void;
+  setTheme: (theme: string) => void;
 }
 
 const ThemeContext = createContext<ThemeContextProps>({
   theme: 'light',
-  setTheme: () => {}
+  setTheme: () => {},
 });
 
 const ThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [theme, setTheme] = useState('light');
 
-  const valueToShare = {
+  const valueToShare: ThemeContextProps = {
     theme,
-    setTheme
+    setTheme,
   };
 
   return (

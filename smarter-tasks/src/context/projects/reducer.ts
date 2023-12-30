@@ -13,7 +13,7 @@ export interface ProjectsState {
 export type ProjectsActions =
   | { type: "FETCH_PROJECTS_REQUEST" }
   | { type: "FETCH_PROJECTS_SUCCESS"; payload: Project[] }
-  | { type: "FETCH_PROJECTS_FAILURE"; payload?: string } 
+  | { type: "FETCH_PROJECTS_FAILURE"; payload?: string }
   | { type: "ADD_PROJECT_SUCCESS"; payload: Project };
 
 export const initialState: ProjectsState = {
@@ -32,7 +32,7 @@ export const reducer = (
       return {
         ...state,
         isLoading: true,
-        isError: false, 
+        isError: false,
         errorMessage: "",
       };
     case "FETCH_PROJECTS_SUCCESS":
@@ -46,7 +46,7 @@ export const reducer = (
         ...state,
         isLoading: false,
         isError: true,
-        errorMessage: action.payload || "An error occurred", 
+        errorMessage: action.payload || "An error occurred",
       };
     case "ADD_PROJECT_SUCCESS":
       return { ...state, projects: [...state.projects, action.payload] };

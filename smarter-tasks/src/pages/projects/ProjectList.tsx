@@ -9,10 +9,12 @@ const ProjectList: React.FC = () => {
   useEffect(() => {
     fetchProjects(dispatchProjects);
   }, []);
+
   return (
-    <div className="grid gap-2 grid-cols-4 mt-3">
+    <div className="grid gap-1 grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 mt-1">
       <ProjectListItems />
     </div>
   );
 };
+
 export default ProjectList;

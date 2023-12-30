@@ -3,18 +3,18 @@ import { deleteUser } from "../../context/members/actions";
 import { useUsersDispatch } from "../../context/members/context";
 
 export default function MemberListItems() {
-  let state: any = useUsersState();
+  const state: any = useUsersState();
   const dispatchUsers = useUsersDispatch();
-  const handleDelete = (id: number) => {deleteUser(dispatchUsers, id);};
+  const handleDelete = (id: number) => {
+    deleteUser(dispatchUsers, id);
+  };
   const { users, isLoading, isError, errorMessage } = state;
-  console.log(users);
 
   if (users.length === 0 && isLoading) {
     return <span>Loading</span>;
   }
 
   if (isError) {
-    
     return <span>{errorMessage}</span>;
   }
 
@@ -22,20 +22,18 @@ export default function MemberListItems() {
     <>
       {users.map((user: any) => (
         <div
-          key={user.id} id="member"
-          className="member block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          key={user.id}
+          id="member"
+          className="member flex p-6 bg-blue-100 border border-blue-300 rounded-lg shadow hover:bg-blue-200 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
         >
-          <h5
-            className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"
-            
-          >
-            {user.name}
-          </h5>
-          <p className="text-gray-600 dark:text-gray-400" >
-            Email: {user.email}
-          </p>
+          <div className="flex-1">
+            <h5 className="mb-2 text-xl font-medium tracking-tight text-blue-900 dark:text-white">
+              {user.name}
+            </h5>
+            <p className="text-blue-600 dark:text-gray-400">Email: {user.email}</p>
+          </div>
           <button
-            className="text-red-500 hover:text-red-700"
+            className="text-red-500 hover:text-red-700 ml-4"
             onClick={() => handleDelete(user.id)}
           >
             <svg

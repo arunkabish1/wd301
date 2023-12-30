@@ -68,9 +68,9 @@ const NewProject = () => {
               <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
             </Transition.Child>
 
-            <div className="inline-block align-middle my-8 p-6 max-w-md w-full overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-              <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-                Create new project
+            <div className="inline-block align-middle my-8 p-6 max-w-md w-full overflow-hidden text-left align-middle transition-all transform bg-blue-100 shadow-xl rounded-2xl">
+              <Dialog.Title as="h3" className="text-lg bg-blue-100 font-medium leading-6">
+                Create New Project !
               </Dialog.Title>
 
               <div className="mt-2">
@@ -84,7 +84,7 @@ const NewProject = () => {
                       errors.name ? 'border-red-500' : ''
                     }`}
                   />
-                  {errors.name && <span>This field is required</span>}
+                  {errors.name && <span className="text-red-500">This field is required</span>}
                   <button
                     type="submit"
                     className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
