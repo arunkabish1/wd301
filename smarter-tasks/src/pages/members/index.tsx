@@ -8,7 +8,7 @@ const Members = () => {
         <h2 className="text-3xl font-medium text-white tracking-tight">Members</h2>
         <NewMember />
       </div>
-      <div className="bg-gray-100 p-4">
+      <div className="bg-gray-100 p-4 dark:bg-gray-800 dark:border-gray-700 ">
         <MemberList />
       </div>
     </>
