@@ -51,6 +51,7 @@ export const deleteUser = async (dispatch: any, id: number) => {
 
   try {
     dispatch({ type: "DELETE_USER_REQUEST" });
+
     const response = await fetch(`${API_ENDPOINT}/users/${id}`, {
       method: "DELETE",
       headers: {
@@ -60,16 +61,14 @@ export const deleteUser = async (dispatch: any, id: number) => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to delete the user");
+      const errorText = await response.text();
+      throw new Error(`Failed to delete the user: ${errorText}`);
     }
 
     dispatch({ type: "DELETE_USER_SUCCESS", payload: id });
-    return {
-       ok: true };
-  }
-   catch (error) {
+    return { ok: true };
+  } catch (error) {
     console.error("Operation failed:", error);
     return { ok: false, error };
   }
-
 };
