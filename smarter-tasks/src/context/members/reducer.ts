@@ -7,9 +7,9 @@ interface User {
 
 export interface UsersState {
   users: User[];
-  errorMessage: string;
   isLoading: boolean;
   isError: boolean;
+  errorMessage: string;
 }
 
 export type UsersActions =
@@ -45,12 +45,12 @@ export const reducer = (
     case "FETCH_USERS_FAILURE":
       return {
         ...state,
-        isError: true,
         isLoading: false,
+        isError: true,
         errorMessage: action.payload,
       };
-    case "ADD_USER_SUCCESS":
-      return { ...state, users: [...state.users, action.payload] };
+      case "ADD_USER_SUCCESS":
+        return { ...state, users: [...state.users, action.payload] };
     case "DELETE_USER_SUCCESS":
       return {
         ...state,
