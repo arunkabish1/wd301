@@ -70,36 +70,34 @@ const NewTask = () => {
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                      <input
+                    <input
                         type="text"
                         required
                         placeholder="Enter title"
                         autoFocus
                         id="title"
+                        // Register the title field as required
                         {...register("title", { required: true })}
-                        name="title" // Add the name attribute here
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
-
                       <input
                         type="text"
                         required
                         placeholder="Enter description"
                         autoFocus
                         id="description"
+                        // register the description field as required
                         {...register("description", { required: true })}
-                        name="description" // Add the name attribute here
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
-
                       <input
                         type="date"
                         required
                         placeholder="Enter due date"
                         autoFocus
                         id="dueDate"
+                        // register due date field as required
                         {...register("dueDate", { required: true })}
-                        name="dueDate" // Add the name attribute here
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
 
@@ -108,13 +106,13 @@ const NewTask = () => {
                         id="newTaskSubmitBtn"
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
-                        Submit
+                        Submit 
                       </button>
                       <button
                         onClick={closeModal}
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
-                        Cancel
+                        Cancel 
                       </button>
                     </form>
                   </div>
