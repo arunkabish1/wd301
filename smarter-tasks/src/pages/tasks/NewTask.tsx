@@ -73,14 +73,14 @@ const NewTask = () => {
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                      <input
+                    <input
                         type="text"
                         required
                         placeholder="Enter title"
                         autoFocus
                         id="title"
-                        name="title"
-                       
+                        // name="title"
+                        {...register("title", { required: true })}
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
                       <input
@@ -89,6 +89,7 @@ const NewTask = () => {
                         placeholder="Enter description"
                         autoFocus
                         id="description"
+                         // name="description"
                         {...register("description", { required: true })}
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
@@ -98,6 +99,7 @@ const NewTask = () => {
                         placeholder="Enter due date"
                         autoFocus
                         id="dueDate"
+                        // name="dueDate"
                         {...register("dueDate", { required: true })}
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
