@@ -47,6 +47,7 @@ const NewProject = () => {
     <>
       <button
         type="button"
+        id='newProjectBtn'
         onClick={openModal}
         className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
@@ -68,7 +69,7 @@ const NewProject = () => {
               <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
             </Transition.Child>
 
-            <div className="inline-block align-middle my-8 p-6 max-w-md w-full overflow-hidden text-left align-middle transition-all transform bg-blue-100 shadow-xl rounded-2xl">
+            <div className="inline-block align-middle my-8 p-6 max-w-md w-full overflow-hidden text-left transition-all transform bg-blue-100 shadow-xl rounded-2xl">
               <Dialog.Title as="h3" className="text-lg bg-blue-100 font-medium leading-6">
                 Create New Project !
               </Dialog.Title>
@@ -77,6 +78,7 @@ const NewProject = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <input
                     type="text"
+                    id='submitNewProjectBtn'
                     placeholder="Enter project name..."
                     autoFocus
                     {...register('name', { required: true })}
