@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 
 export default function ProjectListItems() {
   let state: any = useProjectsState();
-  const { isError, errorMessage, projects, isLoading } = state;
+  const { projects, isLoading, isError, errorMessage } = state;
+  console.log(projects);
 
   if (projects.length === 0 && isLoading) {
-    return <span>Loading</span>;
+    return <span>Loading...</span>;
   }
 
   if (isError) {
@@ -17,14 +18,14 @@ export default function ProjectListItems() {
     <>
       {projects.map((project: any) => (
         <Link
-        key={project.id}
-        to={`${project.id}`}
-          className="block p-6 bg-blue-100 border border-gray-300 rounded-lg shadow-md hover:bg-blue-200 dark:bg-gray-800 dark:border-blue-700 dark:hover:bg-blue-700 transition duration-300"
+          key={project.id}
+          to={`${project.id}`}
+          className="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
         >
           <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">
             {project.name}
           </h5>
-          </Link>
+        </Link>
       ))}
     </>
   );
