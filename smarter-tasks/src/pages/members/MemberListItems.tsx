@@ -30,7 +30,7 @@ export default function MemberListItems() {
             <h5 className="mb-2 text-xl font-medium tracking-tight text-blue-900 dark:text-white">
               {user.name}
             </h5>
-            <p className="text-blue-600 dark:text-gray-400">Email: {user.email}</p>
+            <p className="text-blue-600 dark:text-gray-400">Email ID: {user.email}</p>
           </div>
           <button
             className="text-red-500 hover:text-red-700 ml-4"

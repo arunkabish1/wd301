@@ -1,13 +1,13 @@
+interface Project {
+  id: number;
+  name: string;
+}
+
 export interface ProjectsState {
   projects: Project[];
   isLoading: boolean;
   isError: boolean;
   errorMessage: string;
-}
-
-interface Project {
-  id: number;
-  name: string;
 }
 
 export type ProjectsActions =
